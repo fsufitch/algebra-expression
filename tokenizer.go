@@ -30,6 +30,9 @@ var (
 	caret       = token{"^", operator, true}
 	sqrt        = token{"sqrt", operator, false}
 	log         = token{"log", operator, false}
+	sin         = token{"sin", operator, false}
+	cos         = token{"cos", operator, false}
+	tan         = token{"tan", operator, false}
 	openParens  = token{"(", parenthesis, true}
 	closeParens = token{")", parenthesis, true}
 )
@@ -38,7 +41,7 @@ var reservedStrings = map[string]token{}
 
 func init() {
 	reservedTokens := []token{
-		plus, minus, asterisk, slash, caret, sqrt, log, openParens, closeParens,
+		plus, minus, asterisk, slash, caret, sqrt, log, openParens, closeParens, sin, cos, tan,
 	}
 	for _, t := range reservedTokens {
 		reservedStrings[t.Text] = t

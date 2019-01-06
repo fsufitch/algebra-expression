@@ -49,3 +49,30 @@ func SquareRoot(term Expression) Expression {
 		format: "sqrt(%s)",
 	}
 }
+
+// Sine creates an expression calculating the sine of another expression (using radians)
+func Sine(term Expression) Expression {
+	return unaryExpression{
+		term:     term,
+		calcFunc: func(x float64) (float64, error) { return math.Sin(x), nil },
+		format:   "sin(%s)",
+	}
+}
+
+// Cosine creates an expression calculating the cosine of another expression (using radians)
+func Cosine(term Expression) Expression {
+	return unaryExpression{
+		term:     term,
+		calcFunc: func(x float64) (float64, error) { return math.Cos(x), nil },
+		format:   "cos(%s)",
+	}
+}
+
+// Tangent creates an expression calculating the tangent of another expression (using radians)
+func Tangent(term Expression) Expression {
+	return unaryExpression{
+		term:     term,
+		calcFunc: func(x float64) (float64, error) { return math.Tan(x), nil },
+		format:   "tan(%s)",
+	}
+}

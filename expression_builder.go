@@ -62,7 +62,7 @@ func operatorToExpression(op token, exprStack *expressionStack) (Expression, err
 	operandRHS := exprStack.Pop()
 	operandLHS := exprStack.Pop()
 	switch op {
-	case sqrt, minusUnary:
+	case sqrt, minusUnary, sin, cos, tan:
 		if operandRHS == nil {
 			return nil, fmt.Errorf("Builder error: missing operand for unary %s", op.Text)
 		}
@@ -74,6 +74,12 @@ func operatorToExpression(op token, exprStack *expressionStack) (Expression, err
 			return SquareRoot(*operandRHS), nil
 		case minusUnary:
 			return Negative(*operandRHS), nil
+		case sin:
+			return Sine(*operandRHS), nil
+		case cos:
+			return Cosine(*operandRHS), nil
+		case tan:
+			return Tangent(*operandRHS), nil
 		}
 	case plus, minus, asterisk, slash, caret, log:
 		if operandRHS == nil {
