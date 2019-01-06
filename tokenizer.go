@@ -133,18 +133,3 @@ func isValidVariable(name []rune) bool {
 	}
 	return true
 }
-
-// StringTokens is for testing use only
-func StringTokens(input string) ([]string, error) {
-	tokens, err := tokenize([]rune(input))
-	if err != nil {
-		return nil, err
-	}
-
-	strs := []string{}
-	for _, t := range tokens {
-		strs = append(strs, t.Text)
-	}
-
-	return strs, nil
-}
